@@ -1,7 +1,7 @@
 function : 
 ### 1. 
-    trigger : 
-      ### 1.
+trigger function : 
+### 1.
 
 
 trigger : 
