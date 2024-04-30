@@ -1,3 +1,9 @@
+function : 
+### 1. 
+    trigger : 
+      ### 1.
+
+
 trigger : 
-### 1. update jumlah narapidana di tabel Penjara saat narapidana masuk
-### 2. update jumlah narapidana di tabel Penjara saat narapidana keluar
+### 1. update jumlah now di tabel Sel saat narapidana masuk
+### 2. update jumlah now di tabel Sel saat narapidana keluar
