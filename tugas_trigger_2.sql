@@ -4,7 +4,7 @@ FOR EACH ROW
 BEGIN
     DECLARE sel_number INT;
 
-    -- Mendapatkan nomor sel dari narapidana yang akan dihapus
+    -- Mendapatkan nomor sel dari narapidana yang dihapus
     SELECT Sel_NomorSel INTO sel_number
     FROM Narapidana
     WHERE IDNarapidana = OLD.IDNarapidana;
