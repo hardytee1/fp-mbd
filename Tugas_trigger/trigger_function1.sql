@@ -1,5 +1,5 @@
 CREATE OR REPLACE TRIGGER trg_check_capacity
-BEFORE UPDATE OF Sel_NomorSel ON Narapidana
+BEFORE INSERT OF Sel_NomorSel ON Narapidana
 FOR EACH ROW
 BEGIN
     DECLARE v_check INT;
