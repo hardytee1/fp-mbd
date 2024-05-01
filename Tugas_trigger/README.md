@@ -5,4 +5,3 @@
 
 ## trigger : 
 ### 1. update jumlah now di tabel Sel saat narapidana masuk (BENAR)
-### 2. update jumlah now di tabel Sel saat narapidana keluar (SALAH)
