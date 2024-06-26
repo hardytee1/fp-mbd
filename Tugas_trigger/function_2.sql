@@ -1,50 +1,28 @@
 DELIMITER $$
 
-CREATE FUNCTION checkCapacityPenjara(penjara_id INT)
+CREATE FUNCTION checkCapacityPenjara(sel_id INT)
 RETURNS INT
 BEGIN
-    DECLARE jumlah_now INT DEFAULT 0;
-    DECLARE kapasitas_penjara INT DEFAULT 0;
-    DECLARE done INT DEFAULT 0;  -- Flag to indicate when fetching is complete
-    DECLARE no_row_found BOOL DEFAULT FALSE;
+    DECLARE penjara_id INT;
+    DECLARE jumlah_narapidana INT;
+    DECLARE kapasitas_maksimum INT;
 
-    -- Declare a cursor to fetch the relevant data from the `Sel` table
-    DECLARE cur CURSOR FOR
-    SELECT KapasitasMaksimumNarapidana, JumlahNarapidanaSaatIni
+    -- Get the Penjara ID associated with the Sel
+    SELECT Penjara_IDPenjara INTO penjara_id
+    FROM Sel
+    WHERE NomorSel = sel_id;
+
+    -- Get the current number of inmates and maximum capacity of the Penjara
+    SELECT JumlahNarapidanaSaatIni, KapasitasMaksimumNarapidana INTO jumlah_narapidana, kapasitas_maksimum
     FROM Penjara
     WHERE IDPenjara = penjara_id;
 
-    -- Continue handler for when fetching is complete
-    DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
-
-    -- Open the cursor
-    OPEN cur;
-
-    -- Loop through the results
-    REPEAT
-        FETCH cur INTO jumlah_now, kapasitas_penjara;
-        IF NOT done THEN
-            -- Check if the cell is at or over capacity
-            IF jumlah_now >= kapasitas_penjara THEN
-                CLOSE cur;
-                RETURN 0;  -- Cell is full
-            ELSE
-                CLOSE cur;
-                RETURN 1;  -- Cell has space
-            END IF;
-        ELSE
-            -- If no row was found
-            CLOSE cur;
-            RETURN -1;  -- No cell found with the given ID
-        END IF;
-    UNTIL done END REPEAT;
-
-    -- Close the cursor to clean up
-    CLOSE cur;
-
-    -- Default return if no other conditions were met (unlikely to be reached)
-    RETURN -1;
-
+    -- Check if the Penjara is at or over capacity
+    IF jumlah_narapidana >= kapasitas_maksimum THEN
+        RETURN 0;  -- Penjara is full
+    ELSE
+        RETURN 1;  -- Penjara has space
+    END IF;
 END$$
 
 DELIMITER ;
