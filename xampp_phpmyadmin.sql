@@ -61,6 +61,7 @@ CREATE TABLE Narapidana (
     Kejahatan varchar(100),
     TanggalMasuk date NOT NULL,
     TanggalKeluar date,
+    isOut int, 
     Sel_NomorSel int NOT NULL,
     CONSTRAINT PK_Narapidana PRIMARY KEY (IDNarapidana)
 );
