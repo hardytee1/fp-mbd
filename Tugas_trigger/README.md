@@ -7,3 +7,4 @@
 ### 1. update jumlah now di tabel Sel saat narapidana masuk (BENAR)
 ### 2. update jumlah now jika isOut tidak null
 ### 3. update jumlah narapidana saat ini di tabel penjara saat ada narapbidana baru yang masuk
+### 4. update jumlah narapidana saat ini di tabel penjara saat ada narapidana yang keluar
