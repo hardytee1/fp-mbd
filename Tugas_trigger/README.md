@@ -2,7 +2,8 @@
 ### 1. Apabila jumlah now = kapasitas sel, return 0 (BENAR)
 ### 2. Apabila jumlah now = kapasitas penjara, return 0 (BENAR)
 ## trigger function : 
-### 1. Saat sebelum ada data yang terupdate di narapidana (BENAR)
+### 1. Saat sebelum ada data yang terupdate di narapidana cek sel menggunakan function 1 (BENAR)
+### 2. Saat sebelum ada data yang terupdate di narapidana cek penjara menggunakan function 2 (BENAR)
 
 ## trigger : 
 ### 1. update jumlah now di tabel Sel saat narapidana masuk (BENAR)
