@@ -1,3 +1,4 @@
+DELIMITER $$
 CREATE TRIGGER `trg_check_capacity` BEFORE INSERT ON `narapidana`
  FOR EACH ROW BEGIN
     DECLARE v_check INT;
@@ -10,4 +11,4 @@ CREATE TRIGGER `trg_check_capacity` BEFORE INSERT ON `narapidana`
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Kapasitas sel sudah penuh. Perbaruan tidak dapat dilakukan.';
     END IF;
-END
+END$$
