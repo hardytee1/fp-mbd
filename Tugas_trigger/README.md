@@ -1,5 +1,6 @@
 ## function : 
-### 1. Apabila jumlah now = kapasitas, return 0 (BENAR)
+### 1. Apabila jumlah now = kapasitas sel, return 0 (BENAR)
+### 2. Apabila jumlah now = kapasitas penjara, return 0 (BENAR)
 ## trigger function : 
 ### 1. Saat sebelum ada data yang terupdate di narapidana (BENAR)
 
